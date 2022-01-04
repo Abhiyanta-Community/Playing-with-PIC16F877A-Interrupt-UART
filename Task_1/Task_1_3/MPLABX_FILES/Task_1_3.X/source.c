@@ -1,19 +1,28 @@
 #include <xc.h>
-#define _XTAL_FREQ 200000000 //Frequency for oscillator
+#define _XTAL_FREQ 20000000 //Frequency for oscillator
 unsigned char i=0;   //global variable i
 void interrupt blink()  //defing interrupt function
 {
-    if( INTCONbits.TMR0IF == 1)   //checking when timer flag becomes 1
-    {     i++;}            //incrementing value of i
-       INTCONbits.TMR0IF = 0;      //clearing timer flag
-    }
-    
+    if( TMR1IF == 1)   //checking when timer flag becomes 1
+    {     i++;}//incrementing value of i
+         
+        TMR1IF = 0;   //clearing timer flag
+        TMR1H=0xDC;    // count for 100ms delay
+        TMR1L=0x0B;
+}   
 void main()
 {
     INTCONbits.GIE = 1;	//enabling global interrupt
-    INTCONbits.TMR0IE = 1;	//enabling timer 0 overflow interrupt
     INTCONbits.PEIE = 1;	//enabling peripheral interrupt
-    OPTION_REG = 0x07;	//assigning PS2,PS1,PS0 as 1 for prescaler rate 256
+    TMR1IE= 1;	//enabling timer 1 interrupt
+    T1CONbits.T1CKPS1=1;	
+    T1CONbits.T1CKPS0=1;    //assigning  prescaler rate 8
+    T1CONbits.TMR1CS=0;     // selecting internal oscillator  
+    
+    TMR1H=0xDC;   
+    TMR1L=0x0B;
+     //assigning initial count value for 100ms delay = 65536-62500=3036(decimal)=101111011100(binary)=0x0BDC(hex)
+   
     TRISB0=1;	//defing 1 input port for push-button
     TRISB1=0;	//defing 5 output ports for leds
     TRISB2=0;
@@ -21,7 +30,7 @@ void main()
     TRISB4=0;
     TRISB5=0;
     PORTB =0x00;	//turning all leds off
-    
+    T1CONbits.TMR1ON=1; //starting timer 1
     if(PORTBbits.RB0==1)	//condition to check when push-button is pressed
     while(1)			//endless loop for blinking in pattern
     {
