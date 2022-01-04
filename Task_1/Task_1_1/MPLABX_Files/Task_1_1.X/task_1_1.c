@@ -1,10 +1,3 @@
-/*
- * File:   task_1_1.c
- * Author: Arth Gandhi
- *
- * Created on 12 December, 2021, 11:50 PM
- */
-
 
 #include <xc.h>
 #define _XTAL_FREQ 20000000   //Frequency for oscillator
