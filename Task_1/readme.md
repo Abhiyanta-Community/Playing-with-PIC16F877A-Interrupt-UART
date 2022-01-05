@@ -1,4 +1,4 @@
-# MICROCONTROLLER (PIC16F8774A)
+# Timer and Interrupts with PIC16F877A
 
 Our Task_1 was mainly about blinking the LEDs in a given sequence by burning the code in the microcontroller
 
