@@ -1,5 +1,5 @@
 #include <xc.h>
-#define _XTAL_FREQ 20000000 //Frequency for oscillator
+#define _XTAL_FREQ 20000000 //Frequency for oscillato
 
 void interrupt blink()      //interrupt function pattern 
 {
