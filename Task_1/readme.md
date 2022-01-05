@@ -1,7 +1,8 @@
 # MICROCONTROLLER (PIC16F8774A)
 
-Our Task_1 was mainly about blinking the LEDs in a given sequence by burning the code in the microcontroller   
-We simply divided our task in 3 parts they are
+Our Task_1 was mainly about blinking the LEDs in a given sequence by burning the code in the microcontroller
+
+We simply divided our task in 3 parts they are;
 1. Task_1_1
 2. Task_1_2
 3. Task_1_3<br/>
