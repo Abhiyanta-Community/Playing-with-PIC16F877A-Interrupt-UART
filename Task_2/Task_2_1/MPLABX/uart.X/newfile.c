@@ -18,7 +18,7 @@ void uart()
     CREN = 1;
     RX9 = 0;
     */
-    TXIF = RCIF = 0;
+ //   TXIF = RCIF = 0;
 }
 
 void send(char a)
@@ -45,12 +45,20 @@ void send_data(char *x)
 
 void main()
 {    
-    TRISC6=0;                      //PORTC 
+    int p;
+    TRISC6=0;                      
     TRISC7=1;
     uart();
     
-    send_data("Hello World!!\n\r\r");
+    send_data("UART MODULE READY!!\n");
     while(1)
-    {        send(get());
+    {   p=get();  
+        send(p);
+        
+        if(p==1)
+            RB3=1;
+        
+        else
+            RB3=0;
     }
 }
