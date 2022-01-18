@@ -1,8 +1,8 @@
 #include <xc.h>
 #define _XTAL_FREQ 20000000   //Frequency for oscillator
-#define baud_rate 9600
+#define baud_rate 9600         // definig Baud rate
 
-void uart()
+void uart()                  //function for using UART
 {
     
     TXSTA =0x24;
@@ -18,26 +18,25 @@ void uart()
     CREN = 1;
     RX9 = 0;
     */
- //   TXIF = RCIF = 0;
+
 }
 
-void send(char a)
+void send(char a)               //function for sending data
 {
     TXREG = a ;
     while(!TXIF);
-    TXIF=0;
+    //TXIF=0;
 }
     
     
-char get()
+char get()                      //function for receiving data
 {
-    RB3=1;
     while(!RCIF)
         RCIF=0;
     return RCREG;
 }   
 
-void send_data(char *x)
+void send_data(char *x)         //function for sending string as character
 {
  while(*x)   
      send(*x++);
@@ -48,17 +47,35 @@ void main()
     int p;
     TRISC6=0;                      
     TRISC7=1;
+    TRISB=0x00;
+     RB1=RB2=RB3=0;
     uart();
     
-    send_data("UART MODULE READY!!\n");
+    send_data("Instructions:\n");
+    send_data("Press 1-Green led.\n");
+    send_data("Press 2-Yellow led.\n");
+    send_data("Press 3-Blue led.\n");
+    send_data("(Press 0 to reset)\n");
     while(1)
     {   p=get();  
         send(p);
         
-        if(p==1)
-            RB3=1;
         
-        else
-            RB3=0;
+        //conditions for checking pressed number
+        if(p=='1')
+        {    RB1=1;        
+        }
+        
+        if(p=='2')
+        {   RB2=1;
+        }
+        
+        if(p=='3')
+        {    RB3=1;
+        }
+        
+        if(p=='0')
+        {    RB1=RB2=RB3=0;
+        } 
     }
 }

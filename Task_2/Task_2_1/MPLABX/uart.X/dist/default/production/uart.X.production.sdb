@@ -17,9 +17,9 @@
 [v _send send `(v  1 e 1 0 ]
 "32
 [v _get get `(uc  1 e 1 0 ]
-"40
+"39
 [v _send_data send_data `(v  1 e 1 0 ]
-"46
+"45
 [v _main main `(v  1 e 1 0 ]
 "964 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [v _RCSTA RCSTA `VEuc  1 e 1 @24 ]
@@ -27,10 +27,16 @@
 [v _TXREG TXREG `VEuc  1 e 1 @25 ]
 "1066
 [v _RCREG RCREG `VEuc  1 e 1 @26 ]
+"1375
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
 "1999
 [v _TXSTA TXSTA `VEuc  1 e 1 @152 ]
 "2080
 [v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
+"2677
+[v _RB1 RB1 `VEb  1 e 0 @49 ]
+"2680
+[v _RB2 RB2 `VEb  1 e 0 @50 ]
 "2683
 [v _RB3 RB3 `VEb  1 e 0 @51 ]
 "2743
@@ -41,23 +47,25 @@
 [v _TRISC7 TRISC7 `VEb  1 e 0 @1087 ]
 "3037
 [v _TXIF TXIF `VEb  1 e 0 @100 ]
-"46 C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+"45 C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
 [v _main main `(v  1 e 1 0 ]
 {
-"56
+"47
+[v main@p p `i  1 a 2 5 ]
+"81
 } 0
 "5
 [v _uart uart `(v  1 e 1 0 ]
 {
 "22
 } 0
-"40
+"39
 [v _send_data send_data `(v  1 e 1 0 ]
 {
 [v send_data@x x `*.24uc  1 a 1 wreg ]
 [v send_data@x x `*.24uc  1 a 1 wreg ]
 [v send_data@x x `*.24uc  1 a 1 2 ]
-"44
+"43
 } 0
 "24
 [v _send send `(v  1 e 1 0 ]
@@ -71,5 +79,5 @@
 "32
 [v _get get `(uc  1 e 1 0 ]
 {
-"38
+"37
 } 0

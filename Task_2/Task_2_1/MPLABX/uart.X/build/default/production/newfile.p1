@@ -5,14 +5,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RCSTA `Vuc ~T0 @X0 0 e@24 ]
 "2080
 [v _SPBRG `Vuc ~T0 @X0 0 e@153 ]
+"1059
+[v _TXREG `Vuc ~T0 @X0 0 e@25 ]
 "3037
 [v _TXIF `Vb ~T0 @X0 0 e@100 ]
 "2743
 [v _RCIF `Vb ~T0 @X0 0 e@101 ]
-"1059
-[v _TXREG `Vuc ~T0 @X0 0 e@25 ]
-"2683
-[v _RB3 `Vb ~T0 @X0 0 e@51 ]
 "1066
 [v _RCREG `Vuc ~T0 @X0 0 e@26 ]
 [p mainexit ]
@@ -20,6 +18,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TRISC6 `Vb ~T0 @X0 0 e@1086 ]
 "2980
 [v _TRISC7 `Vb ~T0 @X0 0 e@1087 ]
+"1375
+[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
+"2677
+[v _RB1 `Vb ~T0 @X0 0 e@49 ]
+"2680
+[v _RB2 `Vb ~T0 @X0 0 e@50 ]
+"2683
+[v _RB3 `Vb ~T0 @X0 0 e@51 ]
 [; ;xc8\pic\include\xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8\pic\include\xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -1053,9 +1059,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;newfile.c: 10: SPBRG = 129;
 "10
 [e = _SPBRG -> -> 129 `i `uc ]
-[; ;newfile.c: 21: TXIF = RCIF = 0;
-"21
-[e = _TXIF = _RCIF -> -> 0 `i `b ]
 [; ;newfile.c: 22: }
 "22
 [e :UE 95 ]
@@ -1081,9 +1084,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 97 ]
 [e $ ! _TXIF 98  ]
 [e :U 99 ]
-[; ;newfile.c: 28: TXIF=0;
-"28
-[e = _TXIF -> -> 0 `i `b ]
 [; ;newfile.c: 29: }
 "29
 [e :UE 96 ]
@@ -1096,92 +1096,160 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;newfile.c: 33: {
 [e :U _get ]
 [f ]
-[; ;newfile.c: 34: RB3=1;
+[; ;newfile.c: 34: while(!RCIF)
 "34
-[e = _RB3 -> -> 1 `i `b ]
-[; ;newfile.c: 35: while(!RCIF)
-"35
 [e $U 101  ]
 [e :U 102 ]
-[; ;newfile.c: 36: RCIF=0;
-"36
+[; ;newfile.c: 35: RCIF=0;
+"35
 [e = _RCIF -> -> 0 `i `b ]
 [e :U 101 ]
-"35
+"34
 [e $ ! _RCIF 102  ]
 [e :U 103 ]
-[; ;newfile.c: 37: return RCREG;
-"37
+[; ;newfile.c: 36: return RCREG;
+"36
 [e ) _RCREG ]
 [e $UE 100  ]
-[; ;newfile.c: 38: }
-"38
+[; ;newfile.c: 37: }
+"37
 [e :UE 100 ]
 }
-"40
+"39
 [v _send_data `(v ~T0 @X0 1 ef1`*uc ]
-"41
-{
-[; ;newfile.c: 40: void send_data(char *x)
-[; ;newfile.c: 41: {
-[e :U _send_data ]
 "40
+{
+[; ;newfile.c: 39: void send_data(char *x)
+[; ;newfile.c: 40: {
+[e :U _send_data ]
+"39
 [v _x `*uc ~T0 @X0 1 r1 ]
-"41
+"40
 [f ]
-[; ;newfile.c: 42: while(*x)
-"42
+[; ;newfile.c: 41: while(*x)
+"41
 [e $U 105  ]
 [e :U 106 ]
-[; ;newfile.c: 43: send(*x++);
-"43
+[; ;newfile.c: 42: send(*x++);
+"42
 [e ( _send (1 *U ++ _x * -> -> 1 `i `x -> -> # *U _x `i `x ]
 [e :U 105 ]
-"42
+"41
 [e $ != -> *U _x `i -> -> -> 0 `i `uc `i 106  ]
 [e :U 107 ]
-[; ;newfile.c: 44: }
-"44
+[; ;newfile.c: 43: }
+"43
 [e :UE 104 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"46
+"45
 [v _main `(v ~T0 @X0 1 ef ]
-"47
+"46
 {
-[; ;newfile.c: 46: void main()
-[; ;newfile.c: 47: {
+[; ;newfile.c: 45: void main()
+[; ;newfile.c: 46: {
 [e :U _main ]
 [f ]
+"47
+[v _p `i ~T0 @X0 1 a ]
+[; ;newfile.c: 47: int p;
 [; ;newfile.c: 48: TRISC6=0;
 "48
 [e = _TRISC6 -> -> 0 `i `b ]
 [; ;newfile.c: 49: TRISC7=1;
 "49
 [e = _TRISC7 -> -> 1 `i `b ]
-[; ;newfile.c: 50: uart();
+[; ;newfile.c: 50: TRISB=0x00;
 "50
-[e ( _uart ..  ]
-[; ;newfile.c: 52: send_data("Hello World!!\n\r\r");
+[e = _TRISB -> -> 0 `i `uc ]
+[; ;newfile.c: 51: RB1=RB2=RB3=0;
+"51
+[e = _RB1 = _RB2 = _RB3 -> -> 0 `i `b ]
+[; ;newfile.c: 52: uart();
 "52
-[e ( _send_data (1 -> :s 1C `*uc ]
-[; ;newfile.c: 53: while(1)
-"53
-[e :U 110 ]
-[; ;newfile.c: 54: { send(get());
+[e ( _uart ..  ]
+[; ;newfile.c: 54: send_data("Instructions:\n");
 "54
-{
-[e ( _send (1 ( _get ..  ]
+[e ( _send_data (1 -> :s 1C `*uc ]
+[; ;newfile.c: 55: send_data("Press 1-Green led.\n");
 "55
+[e ( _send_data (1 -> :s 2C `*uc ]
+[; ;newfile.c: 56: send_data("Press 2-Yellow led.\n");
+"56
+[e ( _send_data (1 -> :s 3C `*uc ]
+[; ;newfile.c: 57: send_data("Press 3-Blue led.\n");
+"57
+[e ( _send_data (1 -> :s 4C `*uc ]
+[; ;newfile.c: 58: send_data("(Press 0 to reset)\n");
+"58
+[e ( _send_data (1 -> :s 5C `*uc ]
+[; ;newfile.c: 59: while(1)
+"59
+[e :U 110 ]
+[; ;newfile.c: 60: { p=get();
+"60
+{
+[e = _p -> ( _get ..  `i ]
+[; ;newfile.c: 61: send(p);
+"61
+[e ( _send (1 -> _p `uc ]
+[; ;newfile.c: 65: if(p=='1')
+"65
+[e $ ! == -> _p `ui -> 49 `ui 112  ]
+[; ;newfile.c: 66: { RB1=1;
+"66
+{
+[e = _RB1 -> -> 1 `i `b ]
+"67
+}
+[e :U 112 ]
+[; ;newfile.c: 67: }
+[; ;newfile.c: 69: if(p=='2')
+"69
+[e $ ! == -> _p `ui -> 50 `ui 113  ]
+[; ;newfile.c: 70: { RB2=1;
+"70
+{
+[e = _RB2 -> -> 1 `i `b ]
+"71
+}
+[e :U 113 ]
+[; ;newfile.c: 71: }
+[; ;newfile.c: 73: if(p=='3')
+"73
+[e $ ! == -> _p `ui -> 51 `ui 114  ]
+[; ;newfile.c: 74: { RB3=1;
+"74
+{
+[e = _RB3 -> -> 1 `i `b ]
+"75
+}
+[e :U 114 ]
+[; ;newfile.c: 75: }
+[; ;newfile.c: 77: if(p=='0')
+"77
+[e $ ! == -> _p `ui -> 48 `ui 115  ]
+[; ;newfile.c: 78: { RB1=RB2=RB3=0;
+"78
+{
+[e = _RB1 = _RB2 = _RB3 -> -> 0 `i `b ]
+"79
+}
+[e :U 115 ]
+"80
 }
 [e :U 109 ]
-"53
+"59
 [e $U 110  ]
 [e :U 111 ]
-[; ;newfile.c: 55: }
-[; ;newfile.c: 56: }
-"56
+[; ;newfile.c: 79: }
+[; ;newfile.c: 80: }
+[; ;newfile.c: 81: }
+"81
 [e :UE 108 ]
 }
-[a 1C 72 101 108 108 111 32 87 111 114 108 100 33 33 10 13 13 0 ]
-
+[a 1C 73 110 115 116 114 117 99 116 105 111 110 115 58 10 0 ]
+[a 3C 80 114 101 115 115 32 50 45 89 101 108 108 111 119 32 108 101 100 46 10 0 ]
+[a 2C 80 114 101 115 115 32 49 45 71 114 101 101 110 32 108 101 100 46 10 0 ]
+[a 4C 80 114 101 115 115 32 51 45 66 108 117 101 32 108 101 100 46 10 0 ]
+[a 5C 40 80 114 101 115 115 32 48 32 116 111 32 114 101 115 101 116 41 10 0 ]

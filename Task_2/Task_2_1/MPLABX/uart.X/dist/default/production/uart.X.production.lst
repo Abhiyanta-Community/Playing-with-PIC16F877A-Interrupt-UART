@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.32 build 20210201212658 
-                                                                                               Sun Jan 16 17:34:12 2022
+                                                                                               Tue Jan 18 20:45:10 2022
 
 Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1 
      1                           	processor	16F877A
@@ -183,444 +183,639 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    169  0019                     _TXREG	set	25
    170  0018                     _RCSTA	set	24
    171  0033                     _RB3	set	51
-   172  0065                     _RCIF	set	101
-   173  0064                     _TXIF	set	100
-   174  0099                     _SPBRG	set	153
-   175  0098                     _TXSTA	set	152
-   176  043F                     _TRISC7	set	1087
-   177  043E                     _TRISC6	set	1086
-   178                           
-   179                           	psect	strings
-   180  0003                     __pstrings:
-   181  0003                     stringtab:
-   182  0003                     __stringtab:
-   183  0003                     stringcode:	
-   184                           ;	String table - string pointers are 1 byte each
-   185                           
-   186  0003                     stringdir:
-   187  0003  3000               	movlw	high stringdir
-   188  0004  008A               	movwf	10
-   189  0005  0804               	movf	4,w
-   190  0006  0A84               	incf	4,f
-   191  0007  0782               	addwf	2,f
-   192  0008                     __stringbase:
-   193  0008  3400               	retlw	0
-   194  0009                     __end_of__stringtab:
-   195  0009                     STR_1:
-   196  0009  3448               	retlw	72	;'H'
-   197  000A  3465               	retlw	101	;'e'
-   198  000B  346C               	retlw	108	;'l'
-   199  000C  346C               	retlw	108	;'l'
-   200  000D  346F               	retlw	111	;'o'
-   201  000E  3420               	retlw	32	;' '
-   202  000F  3457               	retlw	87	;'W'
-   203  0010  346F               	retlw	111	;'o'
-   204  0011  3472               	retlw	114	;'r'
-   205  0012  346C               	retlw	108	;'l'
-   206  0013  3464               	retlw	100	;'d'
-   207  0014  3421               	retlw	33	;'!'
-   208  0015  3421               	retlw	33	;'!'
-   209  0016  340A               	retlw	10
-   210  0017  340D               	retlw	13
-   211  0018  340D               	retlw	13
-   212  0019  3400               	retlw	0
-   213                           
-   214                           	psect	cinit
-   215  07FC                     start_initialization:	
-   216                           ; #config settings
-   217                           
-   218  07FC                     __initialization:
-   219  07FC                     end_of_initialization:	
-   220                           ;End of C runtime variable initialization code
-   221                           
-   222  07FC                     __end_of__initialization:
-   223  07FC  0183               	clrf	3
-   224  07FD  120A  118A  2FC0   	ljmp	_main	;jump to C main() function
-   225                           
-   226                           	psect	cstackCOMMON
-   227  0070                     __pcstackCOMMON:
-   228  0070                     ?_uart:
-   229  0070                     ??_uart:	
-   230                           ; 1 bytes @ 0x0
-   231                           
-   232  0070                     ?_send:	
-   233                           ; 1 bytes @ 0x0
-   234                           
-   235  0070                     ??_send:	
-   236                           ; 1 bytes @ 0x0
-   237                           
-   238  0070                     ?_get:	
-   239                           ; 1 bytes @ 0x0
-   240                           
-   241  0070                     ??_get:	
-   242                           ; 1 bytes @ 0x0
-   243                           
-   244  0070                     ?_send_data:	
-   245                           ; 1 bytes @ 0x0
-   246                           
-   247  0070                     ?_main:	
-   248                           ; 1 bytes @ 0x0
-   249                           
-   250  0070                     send@a:	
-   251                           ; 1 bytes @ 0x0
-   252                           
-   253                           
-   254                           ; 1 bytes @ 0x0
-   255  0070                     	ds	1
-   256  0071                     ??_send_data:
-   257                           
-   258                           ; 1 bytes @ 0x1
-   259  0071                     	ds	1
-   260  0072                     send_data@x:
-   261                           
-   262                           ; 1 bytes @ 0x2
-   263  0072                     	ds	1
-   264  0073                     ??_main:
-   265                           
-   266                           	psect	maintext
-   267  07C0                     __pmaintext:	
-   268                           ; 1 bytes @ 0x3
-   269 ;;
-   270 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
-   271 ;;
-   272 ;; *************** function _main *****************
-   273 ;; Defined at:
-   274 ;;		line 46 in file "newfile.c"
-   275 ;; Parameters:    Size  Location     Type
-   276 ;;		None
-   277 ;; Auto vars:     Size  Location     Type
-   278 ;;		None
-   279 ;; Return value:  Size  Location     Type
-   280 ;;                  1    wreg      void 
-   281 ;; Registers used:
-   282 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
-   283 ;; Tracked objects:
-   284 ;;		On entry : B00/0
-   285 ;;		On exit  : 0/0
-   286 ;;		Unchanged: 0/0
-   287 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   288 ;;      Params:         0       0       0       0       0
-   289 ;;      Locals:         0       0       0       0       0
-   290 ;;      Temps:          0       0       0       0       0
-   291 ;;      Totals:         0       0       0       0       0
-   292 ;;Total ram usage:        0 bytes
-   293 ;; Hardware stack levels required when called: 2
-   294 ;; This function calls:
-   295 ;;		_get
-   296 ;;		_send
-   297 ;;		_send_data
-   298 ;;		_uart
-   299 ;; This function is called by:
-   300 ;;		Startup code after reset
-   301 ;; This function uses a non-reentrant model
-   302 ;;
-   303                           
-   304                           
-   305                           ;psect for function _main
-   306  07C0                     _main:
-   307  07C0                     l677:	
-   308                           ;incstack = 0
-   309                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   172  0032                     _RB2	set	50
+   173  0031                     _RB1	set	49
+   174  0065                     _RCIF	set	101
+   175  0064                     _TXIF	set	100
+   176  0086                     _TRISB	set	134
+   177  0099                     _SPBRG	set	153
+   178  0098                     _TXSTA	set	152
+   179  043F                     _TRISC7	set	1087
+   180  043E                     _TRISC6	set	1086
+   181                           
+   182                           	psect	strings
+   183  0003                     __pstrings:
+   184  0003                     stringtab:
+   185  0003                     __stringtab:
+   186  0003                     stringcode:	
+   187                           ;	String table - string pointers are 1 byte each
+   188                           
+   189  0003                     stringdir:
+   190  0003  3000               	movlw	high stringdir
+   191  0004  008A               	movwf	10
+   192  0005  0804               	movf	4,w
+   193  0006  0A84               	incf	4,f
+   194  0007  0782               	addwf	2,f
+   195  0008                     __stringbase:
+   196  0008  3400               	retlw	0
+   197  0009                     __end_of__stringtab:
+   198  0009                     STR_3:
+   199  0009  3450               	retlw	80	;'P'
+   200  000A  3472               	retlw	114	;'r'
+   201  000B  3465               	retlw	101	;'e'
+   202  000C  3473               	retlw	115	;'s'
+   203  000D  3473               	retlw	115	;'s'
+   204  000E  3420               	retlw	32	;' '
+   205  000F  3432               	retlw	50	;'2'
+   206  0010  342D               	retlw	45	;'-'
+   207  0011  3459               	retlw	89	;'Y'
+   208  0012  3465               	retlw	101	;'e'
+   209  0013  346C               	retlw	108	;'l'
+   210  0014  346C               	retlw	108	;'l'
+   211  0015  346F               	retlw	111	;'o'
+   212  0016  3477               	retlw	119	;'w'
+   213  0017  3420               	retlw	32	;' '
+   214  0018  346C               	retlw	108	;'l'
+   215  0019  3465               	retlw	101	;'e'
+   216  001A  3464               	retlw	100	;'d'
+   217  001B  342E               	retlw	46	;'.'
+   218  001C  340A               	retlw	10
+   219  001D  3400               	retlw	0
+   220  001E                     STR_5:
+   221  001E  3428               	retlw	40	;'('
+   222  001F  3450               	retlw	80	;'P'
+   223  0020  3472               	retlw	114	;'r'
+   224  0021  3465               	retlw	101	;'e'
+   225  0022  3473               	retlw	115	;'s'
+   226  0023  3473               	retlw	115	;'s'
+   227  0024  3420               	retlw	32	;' '
+   228  0025  3430               	retlw	48	;'0'
+   229  0026  3420               	retlw	32	;' '
+   230  0027  3474               	retlw	116	;'t'
+   231  0028  346F               	retlw	111	;'o'
+   232  0029  3420               	retlw	32	;' '
+   233  002A  3472               	retlw	114	;'r'
+   234  002B  3465               	retlw	101	;'e'
+   235  002C  3473               	retlw	115	;'s'
+   236  002D  3465               	retlw	101	;'e'
+   237  002E  3474               	retlw	116	;'t'
+   238  002F  3429               	retlw	41	;')'
+   239  0030  340A               	retlw	10
+   240  0031  3400               	retlw	0
+   241  0032                     STR_2:
+   242  0032  3450               	retlw	80	;'P'
+   243  0033  3472               	retlw	114	;'r'
+   244  0034  3465               	retlw	101	;'e'
+   245  0035  3473               	retlw	115	;'s'
+   246  0036  3473               	retlw	115	;'s'
+   247  0037  3420               	retlw	32	;' '
+   248  0038  3431               	retlw	49	;'1'
+   249  0039  342D               	retlw	45	;'-'
+   250  003A  3447               	retlw	71	;'G'
+   251  003B  3472               	retlw	114	;'r'
+   252  003C  3465               	retlw	101	;'e'
+   253  003D  3465               	retlw	101	;'e'
+   254  003E  346E               	retlw	110	;'n'
+   255  003F  3420               	retlw	32	;' '
+   256  0040  346C               	retlw	108	;'l'
+   257  0041  3465               	retlw	101	;'e'
+   258  0042  3464               	retlw	100	;'d'
+   259  0043  342E               	retlw	46	;'.'
+   260  0044  340A               	retlw	10
+   261  0045  3400               	retlw	0
+   262  0046                     STR_4:
+   263  0046  3450               	retlw	80	;'P'
+   264  0047  3472               	retlw	114	;'r'
+   265  0048  3465               	retlw	101	;'e'
+   266  0049  3473               	retlw	115	;'s'
+   267  004A  3473               	retlw	115	;'s'
+   268  004B  3420               	retlw	32	;' '
+   269  004C  3433               	retlw	51	;'3'
+   270  004D  342D               	retlw	45	;'-'
+   271  004E  3442               	retlw	66	;'B'
+   272  004F  346C               	retlw	108	;'l'
+   273  0050  3475               	retlw	117	;'u'
+   274  0051  3465               	retlw	101	;'e'
+   275  0052  3420               	retlw	32	;' '
+   276  0053  346C               	retlw	108	;'l'
+   277  0054  3465               	retlw	101	;'e'
+   278  0055  3464               	retlw	100	;'d'
+   279  0056  342E               	retlw	46	;'.'
+   280  0057  340A               	retlw	10
+   281  0058  3400               	retlw	0
+   282  0059                     STR_1:
+   283  0059  3449               	retlw	73	;'I'
+   284  005A  346E               	retlw	110	;'n'
+   285  005B  3473               	retlw	115	;'s'
+   286  005C  3474               	retlw	116	;'t'
+   287  005D  3472               	retlw	114	;'r'
+   288  005E  3475               	retlw	117	;'u'
+   289  005F  3463               	retlw	99	;'c'
+   290  0060  3474               	retlw	116	;'t'
+   291  0061  3469               	retlw	105	;'i'
+   292  0062  346F               	retlw	111	;'o'
+   293  0063  346E               	retlw	110	;'n'
+   294  0064  3473               	retlw	115	;'s'
+   295  0065  343A               	retlw	58	;':'
+   296  0066  340A               	retlw	10
+   297  0067  3400               	retlw	0
+   298                           
+   299                           	psect	cinit
+   300  07FC                     start_initialization:	
+   301                           ; #config settings
+   302                           
+   303  07FC                     __initialization:
+   304  07FC                     end_of_initialization:	
+   305                           ;End of C runtime variable initialization code
+   306                           
+   307  07FC                     __end_of__initialization:
+   308  07FC  0183               	clrf	3
+   309  07FD  120A  118A  2F90   	ljmp	_main	;jump to C main() function
    310                           
-   311                           
-   312                           ;newfile.c: 48: TRISC6=0;
-   313  07C0  1683               	bsf	3,5	;RP0=1, select bank1
-   314  07C1  1303               	bcf	3,6	;RP1=0, select bank1
-   315  07C2  1307               	bcf	7,6	;volatile
+   311                           	psect	cstackCOMMON
+   312  0070                     __pcstackCOMMON:
+   313  0070                     ?_uart:
+   314  0070                     ??_uart:	
+   315                           ; 1 bytes @ 0x0
    316                           
-   317                           ;newfile.c: 49: TRISC7=1;
-   318  07C3  1787               	bsf	7,7	;volatile
-   319  07C4                     l679:
-   320                           
-   321                           ;newfile.c: 50: uart();
-   322  07C4  120A  118A  27AF  120A  118A  	fcall	_uart
-   323  07C9                     l681:
-   324                           
-   325                           ;newfile.c: 52: send_data("Hello World!!\n\r\r");
-   326  07C9  3001               	movlw	(low ((STR_1-__stringbase)| (0+32768)))& (0+255)
-   327  07CA  120A  118A  27DD  120A  118A  	fcall	_send_data
-   328  07CF                     l683:
-   329                           
-   330                           ;newfile.c: 54: { send(get());
-   331  07CF  120A  118A  2799  120A  118A  	fcall	_get
-   332  07D4  120A  118A  27A4  120A  118A  	fcall	_send
-   333  07D9  2FCF               	goto	l683
-   334  07DA  120A  118A  2800   	ljmp	start
-   335  07DD                     __end_of_main:
-   336                           
-   337                           	psect	text1
-   338  07AF                     __ptext1:	
-   339 ;; *************** function _uart *****************
-   340 ;; Defined at:
-   341 ;;		line 5 in file "newfile.c"
-   342 ;; Parameters:    Size  Location     Type
-   343 ;;		None
-   344 ;; Auto vars:     Size  Location     Type
-   345 ;;		None
-   346 ;; Return value:  Size  Location     Type
-   347 ;;                  1    wreg      void 
-   348 ;; Registers used:
-   349 ;;		wreg
-   350 ;; Tracked objects:
-   351 ;;		On entry : 0/0
-   352 ;;		On exit  : 0/0
-   353 ;;		Unchanged: 0/0
-   354 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   355 ;;      Params:         0       0       0       0       0
-   356 ;;      Locals:         0       0       0       0       0
-   357 ;;      Temps:          0       0       0       0       0
-   358 ;;      Totals:         0       0       0       0       0
-   359 ;;Total ram usage:        0 bytes
-   360 ;; Hardware stack levels used: 1
-   361 ;; This function calls:
-   362 ;;		Nothing
-   363 ;; This function is called by:
-   364 ;;		_main
-   365 ;; This function uses a non-reentrant model
-   366 ;;
-   367                           
-   368                           
-   369                           ;psect for function _uart
-   370  07AF                     _uart:
-   371  07AF                     l643:	
-   372                           ;incstack = 0
-   373                           ; Regs used in _uart: [wreg]
-   374                           
-   375                           
-   376                           ;newfile.c: 8: TXSTA =0x24;
-   377  07AF  3024               	movlw	36
-   378  07B0  1683               	bsf	3,5	;RP0=1, select bank1
-   379  07B1  1303               	bcf	3,6	;RP1=0, select bank1
-   380  07B2  0098               	movwf	24	;volatile
-   381                           
-   382                           ;newfile.c: 9: RCSTA =0x90;
-   383  07B3  3090               	movlw	144
-   384  07B4  1283               	bcf	3,5	;RP0=0, select bank0
-   385  07B5  1303               	bcf	3,6	;RP1=0, select bank0
-   386  07B6  0098               	movwf	24	;volatile
-   387                           
-   388                           ;newfile.c: 10: SPBRG = 129;
-   389  07B7  3081               	movlw	129
-   390  07B8  1683               	bsf	3,5	;RP0=1, select bank1
-   391  07B9  1303               	bcf	3,6	;RP1=0, select bank1
-   392  07BA  0099               	movwf	25	;volatile
-   393  07BB                     l645:
+   317  0070                     ?_send:	
+   318                           ; 1 bytes @ 0x0
+   319                           
+   320  0070                     ??_send:	
+   321                           ; 1 bytes @ 0x0
+   322                           
+   323  0070                     ?_get:	
+   324                           ; 1 bytes @ 0x0
+   325                           
+   326  0070                     ??_get:	
+   327                           ; 1 bytes @ 0x0
+   328                           
+   329  0070                     ?_send_data:	
+   330                           ; 1 bytes @ 0x0
+   331                           
+   332  0070                     ?_main:	
+   333                           ; 1 bytes @ 0x0
+   334                           
+   335  0070                     send@a:	
+   336                           ; 1 bytes @ 0x0
+   337                           
+   338                           
+   339                           ; 1 bytes @ 0x0
+   340  0070                     	ds	1
+   341  0071                     ??_send_data:
+   342                           
+   343                           ; 1 bytes @ 0x1
+   344  0071                     	ds	1
+   345  0072                     send_data@x:
+   346                           
+   347                           ; 1 bytes @ 0x2
+   348  0072                     	ds	1
+   349  0073                     ??_main:
+   350                           
+   351                           ; 1 bytes @ 0x3
+   352  0073                     	ds	2
+   353  0075                     main@p:
+   354                           
+   355                           ; 2 bytes @ 0x5
+   356  0075                     	ds	2
+   357                           
+   358                           	psect	maintext
+   359  0790                     __pmaintext:	
+   360 ;;
+   361 ;;Main: autosize = 0, tempsize = 2, incstack = 0, save=0
+   362 ;;
+   363 ;; *************** function _main *****************
+   364 ;; Defined at:
+   365 ;;		line 45 in file "newfile.c"
+   366 ;; Parameters:    Size  Location     Type
+   367 ;;		None
+   368 ;; Auto vars:     Size  Location     Type
+   369 ;;  p               2    5[COMMON] int 
+   370 ;; Return value:  Size  Location     Type
+   371 ;;                  1    wreg      void 
+   372 ;; Registers used:
+   373 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   374 ;; Tracked objects:
+   375 ;;		On entry : B00/0
+   376 ;;		On exit  : 0/0
+   377 ;;		Unchanged: 0/0
+   378 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   379 ;;      Params:         0       0       0       0       0
+   380 ;;      Locals:         2       0       0       0       0
+   381 ;;      Temps:          2       0       0       0       0
+   382 ;;      Totals:         4       0       0       0       0
+   383 ;;Total ram usage:        4 bytes
+   384 ;; Hardware stack levels required when called: 2
+   385 ;; This function calls:
+   386 ;;		_get
+   387 ;;		_send
+   388 ;;		_send_data
+   389 ;;		_uart
+   390 ;; This function is called by:
+   391 ;;		Startup code after reset
+   392 ;; This function uses a non-reentrant model
+   393 ;;
    394                           
-   395                           ;newfile.c: 21: TXIF = RCIF = 0;
-   396  07BB  1283               	bcf	3,5	;RP0=0, select bank0
-   397  07BC  1303               	bcf	3,6	;RP1=0, select bank0
-   398  07BD  128C               	bcf	12,5	;volatile
-   399  07BE  120C               	bcf	12,4	;volatile
-   400  07BF                     l23:
-   401  07BF  0008               	return
-   402  07C0                     __end_of_uart:
-   403                           
-   404                           	psect	text2
-   405  07DD                     __ptext2:	
-   406 ;; *************** function _send_data *****************
-   407 ;; Defined at:
-   408 ;;		line 40 in file "newfile.c"
-   409 ;; Parameters:    Size  Location     Type
-   410 ;;  x               1    wreg     PTR unsigned char 
-   411 ;;		 -> STR_1(17), 
-   412 ;; Auto vars:     Size  Location     Type
-   413 ;;  x               1    2[COMMON] PTR unsigned char 
-   414 ;;		 -> STR_1(17), 
-   415 ;; Return value:  Size  Location     Type
-   416 ;;                  1    wreg      void 
-   417 ;; Registers used:
-   418 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
-   419 ;; Tracked objects:
-   420 ;;		On entry : 0/0
-   421 ;;		On exit  : 0/0
-   422 ;;		Unchanged: 0/0
-   423 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   424 ;;      Params:         0       0       0       0       0
-   425 ;;      Locals:         1       0       0       0       0
-   426 ;;      Temps:          1       0       0       0       0
-   427 ;;      Totals:         2       0       0       0       0
-   428 ;;Total ram usage:        2 bytes
-   429 ;; Hardware stack levels used: 1
-   430 ;; Hardware stack levels required when called: 1
-   431 ;; This function calls:
-   432 ;;		_send
-   433 ;; This function is called by:
-   434 ;;		_main
-   435 ;; This function uses a non-reentrant model
-   436 ;;
+   395                           
+   396                           ;psect for function _main
+   397  0790                     _main:
+   398  0790                     l715:	
+   399                           ;incstack = 0
+   400                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   401                           
+   402                           
+   403                           ;newfile.c: 47: int p;;newfile.c: 48: TRISC6=0;
+   404  0790  1683               	bsf	3,5	;RP0=1, select bank1
+   405  0791  1303               	bcf	3,6	;RP1=0, select bank1
+   406  0792  1307               	bcf	7,6	;volatile
+   407                           
+   408                           ;newfile.c: 49: TRISC7=1;
+   409  0793  1787               	bsf	7,7	;volatile
+   410  0794                     l717:
+   411                           
+   412                           ;newfile.c: 50: TRISB=0x00;
+   413  0794  0186               	clrf	6	;volatile
+   414  0795                     l719:
+   415                           
+   416                           ;newfile.c: 51: RB1=RB2=RB3=0;
+   417  0795  1283               	bcf	3,5	;RP0=0, select bank0
+   418  0796  1303               	bcf	3,6	;RP1=0, select bank0
+   419  0797  1186               	bcf	6,3	;volatile
+   420  0798  1106               	bcf	6,2	;volatile
+   421  0799  1086               	bcf	6,1	;volatile
+   422  079A                     l721:
+   423                           
+   424                           ;newfile.c: 52: uart();
+   425  079A  120A  118A  2764  120A  118A  	fcall	_uart
+   426  079F                     l723:
+   427                           
+   428                           ;newfile.c: 54: send_data("Instructions:\n");
+   429  079F  3051               	movlw	(low ((STR_1-__stringbase)| (0+32768)))& (0+255)
+   430  07A0  120A  118A  2771  120A  118A  	fcall	_send_data
+   431  07A5                     l725:
+   432                           
+   433                           ;newfile.c: 55: send_data("Press 1-Green led.\n");
+   434  07A5  302A               	movlw	(low ((STR_2-__stringbase)| (0+32768)))& (0+255)
+   435  07A6  120A  118A  2771  120A  118A  	fcall	_send_data
+   436  07AB                     l727:
    437                           
-   438                           
-   439                           ;psect for function _send_data
-   440  07DD                     _send_data:
-   441                           
-   442                           ;incstack = 0
-   443                           ; Regs used in _send_data: [wreg-fsr0h+status,2+status,0+pclath+cstack]
-   444                           ;send_data@x stored from wreg
-   445  07DD  00F2               	movwf	send_data@x
-   446  07DE                     l669:
+   438                           ;newfile.c: 56: send_data("Press 2-Yellow led.\n");
+   439  07AB  3001               	movlw	(low ((STR_3-__stringbase)| (0+32768)))& (0+255)
+   440  07AC  120A  118A  2771  120A  118A  	fcall	_send_data
+   441  07B1                     l729:
+   442                           
+   443                           ;newfile.c: 57: send_data("Press 3-Blue led.\n");
+   444  07B1  303E               	movlw	(low ((STR_4-__stringbase)| (0+32768)))& (0+255)
+   445  07B2  120A  118A  2771  120A  118A  	fcall	_send_data
+   446  07B7                     l731:
    447                           
-   448                           ;newfile.c: 42: while(*x)
-   449  07DE  2FEF               	goto	l675
-   450  07DF                     l671:
-   451                           
-   452                           ;newfile.c: 43: send(*x++);
-   453  07DF  0872               	movf	send_data@x,w
-   454  07E0  0084               	movwf	4
-   455  07E1  120A  118A  2003  120A  118A  	fcall	stringdir
-   456  07E6  120A  118A  27A4  120A  118A  	fcall	_send
-   457  07EB                     l673:
-   458  07EB  3001               	movlw	1
-   459  07EC  00F1               	movwf	??_send_data
-   460  07ED  0871               	movf	??_send_data,w
-   461  07EE  07F2               	addwf	send_data@x,f
-   462  07EF                     l675:
-   463  07EF  0872               	movf	send_data@x,w
-   464  07F0  0084               	movwf	4
-   465  07F1  120A  118A  2003  120A  118A  	fcall	stringdir
-   466  07F6  3A00               	xorlw	0
-   467  07F7  1D03               	skipz
-   468  07F8  2FFA               	goto	u41
-   469  07F9  2FFB               	goto	u40
-   470  07FA                     u41:
-   471  07FA  2FDF               	goto	l671
-   472  07FB                     u40:
-   473  07FB                     l41:
-   474  07FB  0008               	return
-   475  07FC                     __end_of_send_data:
-   476                           
-   477                           	psect	text3
-   478  07A4                     __ptext3:	
-   479 ;; *************** function _send *****************
-   480 ;; Defined at:
-   481 ;;		line 24 in file "newfile.c"
-   482 ;; Parameters:    Size  Location     Type
-   483 ;;  a               1    wreg     unsigned char 
-   484 ;; Auto vars:     Size  Location     Type
-   485 ;;  a               1    0[COMMON] unsigned char 
-   486 ;; Return value:  Size  Location     Type
-   487 ;;                  1    wreg      void 
-   488 ;; Registers used:
-   489 ;;		wreg
-   490 ;; Tracked objects:
-   491 ;;		On entry : 0/0
-   492 ;;		On exit  : 0/0
-   493 ;;		Unchanged: 0/0
-   494 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   495 ;;      Params:         0       0       0       0       0
-   496 ;;      Locals:         1       0       0       0       0
-   497 ;;      Temps:          0       0       0       0       0
-   498 ;;      Totals:         1       0       0       0       0
-   499 ;;Total ram usage:        1 bytes
-   500 ;; Hardware stack levels used: 1
-   501 ;; This function calls:
-   502 ;;		Nothing
-   503 ;; This function is called by:
-   504 ;;		_send_data
-   505 ;;		_main
-   506 ;; This function uses a non-reentrant model
-   507 ;;
-   508                           
-   509                           
-   510                           ;psect for function _send
-   511  07A4                     _send:
-   512                           
-   513                           ;incstack = 0
-   514                           ; Regs used in _send: [wreg]
-   515                           ;send@a stored from wreg
-   516  07A4  00F0               	movwf	send@a
-   517  07A5                     l641:
-   518                           
-   519                           ;newfile.c: 26: TXREG = a ;
-   520  07A5  0870               	movf	send@a,w
-   521  07A6  1283               	bcf	3,5	;RP0=0, select bank0
-   522  07A7  1303               	bcf	3,6	;RP1=0, select bank0
-   523  07A8  0099               	movwf	25	;volatile
-   524  07A9                     l26:	
-   525                           ;newfile.c: 27: while(!TXIF);
-   526                           
-   527  07A9  1E0C               	btfss	12,4	;volatile
-   528  07AA  2FAC               	goto	u11
-   529  07AB  2FAD               	goto	u10
-   530  07AC                     u11:
-   531  07AC  2FA9               	goto	l26
-   532  07AD                     u10:
-   533  07AD                     l28:
-   534                           
-   535                           ;newfile.c: 28: TXIF=0;
-   536  07AD  120C               	bcf	12,4	;volatile
-   537  07AE                     l29:
-   538  07AE  0008               	return
-   539  07AF                     __end_of_send:
-   540                           
-   541                           	psect	text4
-   542  0799                     __ptext4:	
-   543 ;; *************** function _get *****************
-   544 ;; Defined at:
-   545 ;;		line 32 in file "newfile.c"
-   546 ;; Parameters:    Size  Location     Type
-   547 ;;		None
-   548 ;; Auto vars:     Size  Location     Type
-   549 ;;		None
-   550 ;; Return value:  Size  Location     Type
-   551 ;;                  1    wreg      unsigned char 
-   552 ;; Registers used:
-   553 ;;		wreg
-   554 ;; Tracked objects:
-   555 ;;		On entry : 0/0
-   556 ;;		On exit  : 0/0
-   557 ;;		Unchanged: 0/0
-   558 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   559 ;;      Params:         0       0       0       0       0
-   560 ;;      Locals:         0       0       0       0       0
-   561 ;;      Temps:          0       0       0       0       0
-   562 ;;      Totals:         0       0       0       0       0
-   563 ;;Total ram usage:        0 bytes
-   564 ;; Hardware stack levels used: 1
-   565 ;; This function calls:
-   566 ;;		Nothing
-   567 ;; This function is called by:
-   568 ;;		_main
-   569 ;; This function uses a non-reentrant model
-   570 ;;
-   571                           
-   572                           
-   573                           ;psect for function _get
-   574  0799                     _get:
-   575  0799                     l647:	
-   576                           ;incstack = 0
-   577                           ; Regs used in _get: [wreg]
-   578                           
-   579                           
-   580                           ;newfile.c: 34: RB3=1;
-   581  0799  1283               	bcf	3,5	;RP0=0, select bank0
-   582  079A  1303               	bcf	3,6	;RP1=0, select bank0
-   583  079B  1586               	bsf	6,3	;volatile
-   584                           
-   585                           ;newfile.c: 35: while(!RCIF)
-   586  079C  2F9E               	goto	l32
-   587  079D                     l33:
+   448                           ;newfile.c: 58: send_data("(Press 0 to reset)\n");
+   449  07B7  3016               	movlw	(low ((STR_5-__stringbase)| (0+32768)))& (0+255)
+   450  07B8  120A  118A  2771  120A  118A  	fcall	_send_data
+   451  07BD                     l733:
+   452                           
+   453                           ;newfile.c: 60: { p=get();
+   454  07BD  120A  118A  2750  120A  118A  	fcall	_get
+   455  07C2  00F3               	movwf	??_main
+   456  07C3  01F4               	clrf	??_main+1
+   457  07C4  0873               	movf	??_main,w
+   458  07C5  00F5               	movwf	main@p
+   459  07C6  0874               	movf	??_main+1,w
+   460  07C7  00F6               	movwf	main@p+1
+   461  07C8                     l735:
+   462                           
+   463                           ;newfile.c: 61: send(p);
+   464  07C8  0875               	movf	main@p,w
+   465  07C9  120A  118A  275A  120A  118A  	fcall	_send
+   466  07CE                     l737:
+   467                           
+   468                           ;newfile.c: 65: if(p=='1')
+   469  07CE  3031               	movlw	49
+   470  07CF  0675               	xorwf	main@p,w
+   471  07D0  0476               	iorwf	main@p+1,w
+   472  07D1  1D03               	btfss	3,2
+   473  07D2  2FD4               	goto	u91
+   474  07D3  2FD5               	goto	u90
+   475  07D4                     u91:
+   476  07D4  2FD8               	goto	l741
+   477  07D5                     u90:
+   478  07D5                     l739:
+   479                           
+   480                           ;newfile.c: 66: { RB1=1;
+   481  07D5  1283               	bcf	3,5	;RP0=0, select bank0
+   482  07D6  1303               	bcf	3,6	;RP1=0, select bank0
+   483  07D7  1486               	bsf	6,1	;volatile
+   484  07D8                     l741:
+   485                           
+   486                           ;newfile.c: 67: };newfile.c: 69: if(p=='2')
+   487  07D8  3032               	movlw	50
+   488  07D9  0675               	xorwf	main@p,w
+   489  07DA  0476               	iorwf	main@p+1,w
+   490  07DB  1D03               	btfss	3,2
+   491  07DC  2FDE               	goto	u101
+   492  07DD  2FDF               	goto	u100
+   493  07DE                     u101:
+   494  07DE  2FE2               	goto	l745
+   495  07DF                     u100:
+   496  07DF                     l743:
+   497                           
+   498                           ;newfile.c: 70: { RB2=1;
+   499  07DF  1283               	bcf	3,5	;RP0=0, select bank0
+   500  07E0  1303               	bcf	3,6	;RP1=0, select bank0
+   501  07E1  1506               	bsf	6,2	;volatile
+   502  07E2                     l745:
+   503                           
+   504                           ;newfile.c: 71: };newfile.c: 73: if(p=='3')
+   505  07E2  3033               	movlw	51
+   506  07E3  0675               	xorwf	main@p,w
+   507  07E4  0476               	iorwf	main@p+1,w
+   508  07E5  1D03               	btfss	3,2
+   509  07E6  2FE8               	goto	u111
+   510  07E7  2FE9               	goto	u110
+   511  07E8                     u111:
+   512  07E8  2FEC               	goto	l749
+   513  07E9                     u110:
+   514  07E9                     l747:
+   515                           
+   516                           ;newfile.c: 74: { RB3=1;
+   517  07E9  1283               	bcf	3,5	;RP0=0, select bank0
+   518  07EA  1303               	bcf	3,6	;RP1=0, select bank0
+   519  07EB  1586               	bsf	6,3	;volatile
+   520  07EC                     l749:
+   521                           
+   522                           ;newfile.c: 75: };newfile.c: 77: if(p=='0')
+   523  07EC  3030               	movlw	48
+   524  07ED  0675               	xorwf	main@p,w
+   525  07EE  0476               	iorwf	main@p+1,w
+   526  07EF  1D03               	btfss	3,2
+   527  07F0  2FF2               	goto	u121
+   528  07F1  2FF3               	goto	u120
+   529  07F2                     u121:
+   530  07F2  2FBD               	goto	l733
+   531  07F3                     u120:
+   532  07F3                     l751:
+   533                           
+   534                           ;newfile.c: 78: { RB1=RB2=RB3=0;
+   535  07F3  1283               	bcf	3,5	;RP0=0, select bank0
+   536  07F4  1303               	bcf	3,6	;RP1=0, select bank0
+   537  07F5  1186               	bcf	6,3	;volatile
+   538  07F6  1106               	bcf	6,2	;volatile
+   539  07F7  1086               	bcf	6,1	;volatile
+   540  07F8  2FBD               	goto	l733
+   541  07F9  120A  118A  2800   	ljmp	start
+   542  07FC                     __end_of_main:
+   543                           
+   544                           	psect	text1
+   545  0764                     __ptext1:	
+   546 ;; *************** function _uart *****************
+   547 ;; Defined at:
+   548 ;;		line 5 in file "newfile.c"
+   549 ;; Parameters:    Size  Location     Type
+   550 ;;		None
+   551 ;; Auto vars:     Size  Location     Type
+   552 ;;		None
+   553 ;; Return value:  Size  Location     Type
+   554 ;;                  1    wreg      void 
+   555 ;; Registers used:
+   556 ;;		wreg
+   557 ;; Tracked objects:
+   558 ;;		On entry : 0/0
+   559 ;;		On exit  : 0/0
+   560 ;;		Unchanged: 0/0
+   561 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   562 ;;      Params:         0       0       0       0       0
+   563 ;;      Locals:         0       0       0       0       0
+   564 ;;      Temps:          0       0       0       0       0
+   565 ;;      Totals:         0       0       0       0       0
+   566 ;;Total ram usage:        0 bytes
+   567 ;; Hardware stack levels used: 1
+   568 ;; This function calls:
+   569 ;;		Nothing
+   570 ;; This function is called by:
+   571 ;;		_main
+   572 ;; This function uses a non-reentrant model
+   573 ;;
+   574                           
+   575                           
+   576                           ;psect for function _uart
+   577  0764                     _uart:
+   578  0764                     l653:	
+   579                           ;incstack = 0
+   580                           ; Regs used in _uart: [wreg]
+   581                           
+   582                           
+   583                           ;newfile.c: 8: TXSTA =0x24;
+   584  0764  3024               	movlw	36
+   585  0765  1683               	bsf	3,5	;RP0=1, select bank1
+   586  0766  1303               	bcf	3,6	;RP1=0, select bank1
+   587  0767  0098               	movwf	24	;volatile
    588                           
-   589                           ;newfile.c: 36: RCIF=0;
-   590  079D  128C               	bcf	12,5	;volatile
-   591  079E                     l32:
-   592  079E  1E8C               	btfss	12,5	;volatile
-   593  079F  2FA1               	goto	u21
-   594  07A0  2FA2               	goto	u20
-   595  07A1                     u21:
-   596  07A1  2F9D               	goto	l33
-   597  07A2                     u20:
-   598  07A2                     l649:
-   599                           
-   600                           ;newfile.c: 37: return RCREG;
-   601  07A2  081A               	movf	26,w	;volatile
-   602  07A3                     l35:
-   603  07A3  0008               	return
-   604  07A4                     __end_of_get:
-   605  007E                     btemp	set	126	;btemp
-   606  007E                     wtemp0	set	126
+   589                           ;newfile.c: 9: RCSTA =0x90;
+   590  0768  3090               	movlw	144
+   591  0769  1283               	bcf	3,5	;RP0=0, select bank0
+   592  076A  1303               	bcf	3,6	;RP1=0, select bank0
+   593  076B  0098               	movwf	24	;volatile
+   594                           
+   595                           ;newfile.c: 10: SPBRG = 129;
+   596  076C  3081               	movlw	129
+   597  076D  1683               	bsf	3,5	;RP0=1, select bank1
+   598  076E  1303               	bcf	3,6	;RP1=0, select bank1
+   599  076F  0099               	movwf	25	;volatile
+   600  0770                     l29:
+   601  0770  0008               	return
+   602  0771                     __end_of_uart:
+   603                           
+   604                           	psect	text2
+   605  0771                     __ptext2:	
+   606 ;; *************** function _send_data *****************
+   607 ;; Defined at:
+   608 ;;		line 39 in file "newfile.c"
+   609 ;; Parameters:    Size  Location     Type
+   610 ;;  x               1    wreg     PTR unsigned char 
+   611 ;;		 -> STR_5(20), STR_4(19), STR_3(21), STR_2(20), 
+   612 ;;		 -> STR_1(15), 
+   613 ;; Auto vars:     Size  Location     Type
+   614 ;;  x               1    2[COMMON] PTR unsigned char 
+   615 ;;		 -> STR_5(20), STR_4(19), STR_3(21), STR_2(20), 
+   616 ;;		 -> STR_1(15), 
+   617 ;; Return value:  Size  Location     Type
+   618 ;;                  1    wreg      void 
+   619 ;; Registers used:
+   620 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   621 ;; Tracked objects:
+   622 ;;		On entry : 0/0
+   623 ;;		On exit  : 0/0
+   624 ;;		Unchanged: 0/0
+   625 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   626 ;;      Params:         0       0       0       0       0
+   627 ;;      Locals:         1       0       0       0       0
+   628 ;;      Temps:          1       0       0       0       0
+   629 ;;      Totals:         2       0       0       0       0
+   630 ;;Total ram usage:        2 bytes
+   631 ;; Hardware stack levels used: 1
+   632 ;; Hardware stack levels required when called: 1
+   633 ;; This function calls:
+   634 ;;		_send
+   635 ;; This function is called by:
+   636 ;;		_main
+   637 ;; This function uses a non-reentrant model
+   638 ;;
+   639                           
+   640                           
+   641                           ;psect for function _send_data
+   642  0771                     _send_data:
+   643                           
+   644                           ;incstack = 0
+   645                           ; Regs used in _send_data: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   646                           ;send_data@x stored from wreg
+   647  0771  00F2               	movwf	send_data@x
+   648  0772                     l707:
+   649                           
+   650                           ;newfile.c: 41: while(*x)
+   651  0772  2F83               	goto	l713
+   652  0773                     l709:
+   653                           
+   654                           ;newfile.c: 42: send(*x++);
+   655  0773  0872               	movf	send_data@x,w
+   656  0774  0084               	movwf	4
+   657  0775  120A  118A  2003  120A  118A  	fcall	stringdir
+   658  077A  120A  118A  275A  120A  118A  	fcall	_send
+   659  077F                     l711:
+   660  077F  3001               	movlw	1
+   661  0780  00F1               	movwf	??_send_data
+   662  0781  0871               	movf	??_send_data,w
+   663  0782  07F2               	addwf	send_data@x,f
+   664  0783                     l713:
+   665  0783  0872               	movf	send_data@x,w
+   666  0784  0084               	movwf	4
+   667  0785  120A  118A  2003  120A  118A  	fcall	stringdir
+   668  078A  3A00               	xorlw	0
+   669  078B  1D03               	skipz
+   670  078C  2F8E               	goto	u81
+   671  078D  2F8F               	goto	u80
+   672  078E                     u81:
+   673  078E  2F73               	goto	l709
+   674  078F                     u80:
+   675  078F                     l47:
+   676  078F  0008               	return
+   677  0790                     __end_of_send_data:
+   678                           
+   679                           	psect	text3
+   680  075A                     __ptext3:	
+   681 ;; *************** function _send *****************
+   682 ;; Defined at:
+   683 ;;		line 24 in file "newfile.c"
+   684 ;; Parameters:    Size  Location     Type
+   685 ;;  a               1    wreg     unsigned char 
+   686 ;; Auto vars:     Size  Location     Type
+   687 ;;  a               1    0[COMMON] unsigned char 
+   688 ;; Return value:  Size  Location     Type
+   689 ;;                  1    wreg      void 
+   690 ;; Registers used:
+   691 ;;		wreg
+   692 ;; Tracked objects:
+   693 ;;		On entry : 0/0
+   694 ;;		On exit  : 0/0
+   695 ;;		Unchanged: 0/0
+   696 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   697 ;;      Params:         0       0       0       0       0
+   698 ;;      Locals:         1       0       0       0       0
+   699 ;;      Temps:          0       0       0       0       0
+   700 ;;      Totals:         1       0       0       0       0
+   701 ;;Total ram usage:        1 bytes
+   702 ;; Hardware stack levels used: 1
+   703 ;; This function calls:
+   704 ;;		Nothing
+   705 ;; This function is called by:
+   706 ;;		_send_data
+   707 ;;		_main
+   708 ;; This function uses a non-reentrant model
+   709 ;;
+   710                           
+   711                           
+   712                           ;psect for function _send
+   713  075A                     _send:
+   714                           
+   715                           ;incstack = 0
+   716                           ; Regs used in _send: [wreg]
+   717                           ;send@a stored from wreg
+   718  075A  00F0               	movwf	send@a
+   719  075B                     l651:
+   720                           
+   721                           ;newfile.c: 26: TXREG = a ;
+   722  075B  0870               	movf	send@a,w
+   723  075C  1283               	bcf	3,5	;RP0=0, select bank0
+   724  075D  1303               	bcf	3,6	;RP1=0, select bank0
+   725  075E  0099               	movwf	25	;volatile
+   726  075F                     l32:	
+   727                           ;newfile.c: 27: while(!TXIF);
+   728                           
+   729  075F  1E0C               	btfss	12,4	;volatile
+   730  0760  2F62               	goto	u11
+   731  0761  2F63               	goto	u10
+   732  0762                     u11:
+   733  0762  2F5F               	goto	l32
+   734  0763                     u10:
+   735  0763                     l35:
+   736  0763  0008               	return
+   737  0764                     __end_of_send:
+   738                           
+   739                           	psect	text4
+   740  0750                     __ptext4:	
+   741 ;; *************** function _get *****************
+   742 ;; Defined at:
+   743 ;;		line 32 in file "newfile.c"
+   744 ;; Parameters:    Size  Location     Type
+   745 ;;		None
+   746 ;; Auto vars:     Size  Location     Type
+   747 ;;		None
+   748 ;; Return value:  Size  Location     Type
+   749 ;;                  1    wreg      unsigned char 
+   750 ;; Registers used:
+   751 ;;		wreg
+   752 ;; Tracked objects:
+   753 ;;		On entry : 0/0
+   754 ;;		On exit  : 0/0
+   755 ;;		Unchanged: 0/0
+   756 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   757 ;;      Params:         0       0       0       0       0
+   758 ;;      Locals:         0       0       0       0       0
+   759 ;;      Temps:          0       0       0       0       0
+   760 ;;      Totals:         0       0       0       0       0
+   761 ;;Total ram usage:        0 bytes
+   762 ;; Hardware stack levels used: 1
+   763 ;; This function calls:
+   764 ;;		Nothing
+   765 ;; This function is called by:
+   766 ;;		_main
+   767 ;; This function uses a non-reentrant model
+   768 ;;
+   769                           
+   770                           
+   771                           ;psect for function _get
+   772  0750                     _get:
+   773  0750                     l655:	
+   774                           ;incstack = 0
+   775                           ; Regs used in _get: [wreg]
+   776                           
+   777                           
+   778                           ;newfile.c: 34: while(!RCIF)
+   779  0750  2F52               	goto	l38
+   780  0751                     l39:
+   781                           
+   782                           ;newfile.c: 35: RCIF=0;
+   783  0751  128C               	bcf	12,5	;volatile
+   784  0752                     l38:
+   785  0752  1283               	bcf	3,5	;RP0=0, select bank0
+   786  0753  1303               	bcf	3,6	;RP1=0, select bank0
+   787  0754  1E8C               	btfss	12,5	;volatile
+   788  0755  2F57               	goto	u21
+   789  0756  2F58               	goto	u20
+   790  0757                     u21:
+   791  0757  2F51               	goto	l39
+   792  0758                     u20:
+   793  0758                     l657:
+   794                           
+   795                           ;newfile.c: 36: return RCREG;
+   796  0758  081A               	movf	26,w	;volatile
+   797  0759                     l41:
+   798  0759  0008               	return
+   799  075A                     __end_of_get:
+   800  007E                     btemp	set	126	;btemp
+   801  007E                     wtemp0	set	126
 
 Data Sizes:
-    Strings     17
+    Strings     95
     Constant    0
     Data        0
     BSS         0
@@ -629,7 +824,7 @@ Data Sizes:
 
 Auto Spaces:
     Space          Size  Autos    Used
-    COMMON           14      3       3
+    COMMON           14      7       7
     BANK0            80      0       0
     BANK1            80      0       0
     BANK3            96      0       0
@@ -637,8 +832,9 @@ Auto Spaces:
 
 Pointer List with Targets:
 
-    send_data@x	PTR unsigned char  size(1) Largest target is 17
-		 -> STR_1(CODE[17]), 
+    send_data@x	PTR unsigned char  size(1) Largest target is 21
+		 -> STR_5(CODE[20]), STR_4(CODE[19]), STR_3(CODE[21]), STR_2(CODE[20]), 
+		 -> STR_1(CODE[15]), 
 
 
 Critical Paths under _main in COMMON
@@ -667,7 +863,8 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                 0     0      0     108
+ (0) _main                                                 4     4      0     351
+                                              3 COMMON     4     4      0
                                 _get
                                _send
                           _send_data
@@ -675,7 +872,7 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (1) _uart                                                 0     0      0       0
  ---------------------------------------------------------------------------------
- (1) _send_data                                            2     2      0      93
+ (1) _send_data                                            2     2      0     225
                                               1 COMMON     2     2      0
                                _send
  ---------------------------------------------------------------------------------
@@ -702,7 +899,7 @@ BITCOMMON            E      0       0       0        0.0%
 EEDATA             100      0       0       0        0.0%
 NULL                 0      0       0       0        0.0%
 CODE                 0      0       0       0        0.0%
-COMMON               E      3       3       1       21.4%
+COMMON               E      7       7       1       50.0%
 BITSFR0              0      0       0       1        0.0%
 SFR0                 0      0       0       1        0.0%
 BITSFR1              0      0       0       2        0.0%
@@ -725,36 +922,45 @@ DATA                 0      0       0      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.32 build 20210201212658 
-Symbol Table                                                                                   Sun Jan 16 17:34:12 2022
+Symbol Table                                                                                   Tue Jan 18 20:45:10 2022
 
-                      pc 0002                       l23 07BF                       l32 079E  
-                     l33 079D                       l41 07FB                       l26 07A9  
-                     l35 07A3                       l28 07AD                       l29 07AE  
-                     u10 07AD                       u11 07AC                       u20 07A2  
-                     u21 07A1                       u40 07FB                       u41 07FA  
-                     fsr 0004                      l641 07A5                      l643 07AF  
-                    l645 07BB                      l647 0799                      l671 07DF  
-                    l649 07A2                      l673 07EB                      l681 07C9  
-                    l675 07EF                      l683 07CF                      l669 07DE  
-                    l677 07C0                      l679 07C4                      _RB3 0033  
-                    _get 0799                      fsr0 0004                     ?_get 0070  
-                   STR_1 0009                     _RCIF 0065                     _TXIF 0064  
-                   _main 07C0                     _send 07A4                     _uart 07AF  
+                      pc 0002                       l32 075F                       l41 0759  
+                     l35 0763                       l29 0770                       l38 0752  
+                     l39 0751                       l47 078F                       u10 0763  
+                     u11 0762                       u20 0758                       u21 0757  
+                     u80 078F                       u81 078E                       u90 07D5  
+                     u91 07D4                       fsr 0004                      l711 077F  
+                    l713 0783                      l721 079A                      l651 075B  
+                    l707 0772                      l731 07B7                      l723 079F  
+                    l715 0790                      l709 0773                      l653 0764  
+                    l741 07D8                      l733 07BD                      l725 07A5  
+                    l717 0794                      l655 0750                      l751 07F3  
+                    l743 07DF                      l735 07C8                      l727 07AB  
+                    l719 0795                      l657 0758                      l745 07E2  
+                    l737 07CE                      l729 07B1                      l747 07E9  
+                    l739 07D5                      l749 07EC                      _RB1 0031  
+                    _RB2 0032                      _RB3 0033                      u100 07DF  
+                    u101 07DE                      u110 07E9                      u111 07E8  
+                    u120 07F3                      u121 07F2                      _get 0750  
+                    fsr0 0004                     ?_get 0070                     STR_1 0059  
+                   STR_2 0032                     STR_3 0009                     STR_4 0046  
+                   STR_5 001E                     _RCIF 0065                     _TXIF 0064  
+                   _main 0790                     _send 075A                     _uart 0764  
                    btemp 007E                     start 0000                    ??_get 0070  
                   ?_main 0070                    ?_send 0070                    ?_uart 0070  
                   _RCREG 001A                    _RCSTA 0018                    _SPBRG 0099  
-                  _TXREG 0019                    _TXSTA 0098                    pclath 000A  
-                  send@a 0070                    status 0003                    wtemp0 007E  
-        __initialization 07FC             __end_of_main 07DD             __end_of_send 07AF  
-           __end_of_uart 07C0                   ??_main 0073                   ??_send 0070  
-                 ??_uart 0070                   _TRISC6 043E                   _TRISC7 043F  
-__end_of__initialization 07FC           __pcstackCOMMON 0070               __pmaintext 07C0  
-     __size_of_send_data 001F               __stringtab 0003                  __ptext1 07AF  
-                __ptext2 07DD                  __ptext3 07A4                  __ptext4 0799  
-           __size_of_get 000B     end_of_initialization 07FC        __end_of_send_data 07FC  
-    start_initialization 07FC              __end_of_get 07A4                ___latbits 0002  
-              __pstrings 0003               send_data@x 0072                _send_data 07DD  
-            __stringbase 0008               ?_send_data 0070       __end_of__stringtab 0009  
-          __size_of_main 001D            __size_of_send 000B            __size_of_uart 0011  
-            ??_send_data 0071                stringcode 0003                 stringdir 0003  
-               stringtab 0003  
+                  _TRISB 0086                    _TXREG 0019                    _TXSTA 0098  
+                  main@p 0075                    pclath 000A                    send@a 0070  
+                  status 0003                    wtemp0 007E          __initialization 07FC  
+           __end_of_main 07FC             __end_of_send 0764             __end_of_uart 0771  
+                 ??_main 0073                   ??_send 0070                   ??_uart 0070  
+                 _TRISC6 043E                   _TRISC7 043F  __end_of__initialization 07FC  
+         __pcstackCOMMON 0070               __pmaintext 0790       __size_of_send_data 001F  
+             __stringtab 0003                  __ptext1 0764                  __ptext2 0771  
+                __ptext3 075A                  __ptext4 0750             __size_of_get 000A  
+   end_of_initialization 07FC        __end_of_send_data 0790      start_initialization 07FC  
+            __end_of_get 075A                ___latbits 0002                __pstrings 0003  
+             send_data@x 0072                _send_data 0771              __stringbase 0008  
+             ?_send_data 0070       __end_of__stringtab 0009            __size_of_main 006C  
+          __size_of_send 000A            __size_of_uart 000D              ??_send_data 0071  
+              stringcode 0003                 stringdir 0003                 stringtab 0003  

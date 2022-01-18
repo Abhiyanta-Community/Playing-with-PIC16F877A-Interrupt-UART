@@ -1711,21 +1711,19 @@ TXSTA =0x24;
 RCSTA =0x90;
 SPBRG = 129;
 
-# 21
-TXIF = RCIF = 0;
+# 22
 }
 
 void send(char a)
 {
 TXREG = a ;
 while(!TXIF);
-TXIF=0;
+
 }
 
 
 char get()
 {
-RB3=1;
 while(!RCIF)
 RCIF=0;
 return RCREG;
@@ -1739,12 +1737,38 @@ send(*x++);
 
 void main()
 {
+int p;
 TRISC6=0;
 TRISC7=1;
+TRISB=0x00;
+RB1=RB2=RB3=0;
 uart();
 
-send_data("Hello World!!\n\r\r");
+send_data("Instructions:\n");
+send_data("Press 1-Green led.\n");
+send_data("Press 2-Yellow led.\n");
+send_data("Press 3-Blue led.\n");
+send_data("(Press 0 to reset)\n");
 while(1)
-{ send(get());
+{ p=get();
+send(p);
+
+
+
+if(p=='1')
+{ RB1=1;
+}
+
+if(p=='2')
+{ RB2=1;
+}
+
+if(p=='3')
+{ RB3=1;
+}
+
+if(p=='0')
+{ RB1=RB2=RB3=0;
+}
 }
 }
