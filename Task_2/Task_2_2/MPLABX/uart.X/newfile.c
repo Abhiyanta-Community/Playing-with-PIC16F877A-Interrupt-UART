@@ -25,7 +25,7 @@ void send(char a)               //function for sending data
 {
     TXREG = a ;
     while(!TXIF);
-    //TXIF=0;
+ 
 }
     
     
@@ -45,37 +45,37 @@ void send_data(char *x)         //function for sending string as character
 void main()
 {    
     int p;
-    TRISC6=0;                      
-    TRISC7=1;
-    TRISB=0x00;
-     RB1=RB2=RB3=0;
+    TRISC6=0;                     // assigning RC6 as output
+    TRISC7=1;                     //assigning RC7 as input
+    TRISB=0x00;                     //PORTB as output
+     PORTB=0;                      //initialing all output off
     uart();
     
-    send_data("Instructions:\n");
-    send_data("Press 1-Green led.\n");
-    send_data("Press 2-Yellow led.\n");
-    send_data("Press 3-Blue led.\n");
-    send_data("(Press 0 to reset)\n");
+    send_data("INPUT:\n");
     while(1)
-    {   p=get();  
-        send(p);
+    {   p=get();  //receiving data from user
+        send(p);    //displaying data received 
         
         
         //conditions for checking pressed number
         if(p=='1')
-        {    RB1=1;        
+        {    PORTB=0x02; 
+          send_data(" OUTPUT:LED 1 IS ON\n");
         }
         
         if(p=='2')
-        {   RB2=1;
+        {    PORTB=0x04;     
+          send_data(" OUTPUT:LED 2 IS ON\n");
         }
         
         if(p=='3')
-        {    RB3=1;
+        {     PORTB=0x08;       
+          send_data(" OUTPUT:LED 3 IS ON\n");
         }
         
         if(p=='0')
-        {    RB1=RB2=RB3=0;
+        {    PORTB=0;
+          send_data("OUTPUT: LEDS OFF\n");
         } 
     }
 }

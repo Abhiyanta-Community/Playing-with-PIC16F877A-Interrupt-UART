@@ -20,12 +20,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TRISC7 `Vb ~T0 @X0 0 e@1087 ]
 "1375
 [v _TRISB `Vuc ~T0 @X0 0 e@134 ]
-"2677
-[v _RB1 `Vb ~T0 @X0 0 e@49 ]
-"2680
-[v _RB2 `Vb ~T0 @X0 0 e@50 ]
-"2683
-[v _RB3 `Vb ~T0 @X0 0 e@51 ]
+"216
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
 [; ;xc8\pic\include\xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8\pic\include\xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -1162,84 +1158,84 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;newfile.c: 50: TRISB=0x00;
 "50
 [e = _TRISB -> -> 0 `i `uc ]
-[; ;newfile.c: 51: RB1=RB2=RB3=0;
+[; ;newfile.c: 51: PORTB=0;
 "51
-[e = _RB1 = _RB2 = _RB3 -> -> 0 `i `b ]
+[e = _PORTB -> -> 0 `i `uc ]
 [; ;newfile.c: 52: uart();
 "52
 [e ( _uart ..  ]
-[; ;newfile.c: 54: send_data("Instructions:\n");
+[; ;newfile.c: 54: send_data("INPUT:\n");
 "54
 [e ( _send_data (1 -> :s 1C `*uc ]
-[; ;newfile.c: 55: send_data("Press 1-Green led.\n");
+[; ;newfile.c: 55: while(1)
 "55
-[e ( _send_data (1 -> :s 2C `*uc ]
-[; ;newfile.c: 56: send_data("Press 2-Yellow led.\n");
-"56
-[e ( _send_data (1 -> :s 3C `*uc ]
-[; ;newfile.c: 57: send_data("Press 3-Blue led.\n");
-"57
-[e ( _send_data (1 -> :s 4C `*uc ]
-[; ;newfile.c: 58: send_data("(Press 0 to reset)\n");
-"58
-[e ( _send_data (1 -> :s 5C `*uc ]
-[; ;newfile.c: 59: while(1)
-"59
 [e :U 110 ]
-[; ;newfile.c: 60: { p=get();
-"60
+[; ;newfile.c: 56: { p=get();
+"56
 {
 [e = _p -> ( _get ..  `i ]
-[; ;newfile.c: 61: send(p);
-"61
+[; ;newfile.c: 57: send(p);
+"57
 [e ( _send (1 -> _p `uc ]
-[; ;newfile.c: 65: if(p=='1')
-"65
+[; ;newfile.c: 61: if(p=='1')
+"61
 [e $ ! == -> _p `ui -> 49 `ui 112  ]
-[; ;newfile.c: 66: { RB1=1;
-"66
+[; ;newfile.c: 62: { PORTB=0x02;
+"62
 {
-[e = _RB1 -> -> 1 `i `b ]
-"67
+[e = _PORTB -> -> 2 `i `uc ]
+[; ;newfile.c: 63: send_data(" OUTPUT:LED 1 IS ON\n");
+"63
+[e ( _send_data (1 -> :s 2C `*uc ]
+"64
 }
 [e :U 112 ]
-[; ;newfile.c: 67: }
-[; ;newfile.c: 69: if(p=='2')
-"69
+[; ;newfile.c: 64: }
+[; ;newfile.c: 66: if(p=='2')
+"66
 [e $ ! == -> _p `ui -> 50 `ui 113  ]
-[; ;newfile.c: 70: { RB2=1;
-"70
+[; ;newfile.c: 67: { PORTB=0x04;
+"67
 {
-[e = _RB2 -> -> 1 `i `b ]
-"71
+[e = _PORTB -> -> 4 `i `uc ]
+[; ;newfile.c: 68: send_data(" OUTPUT:LED 2 IS ON\n");
+"68
+[e ( _send_data (1 -> :s 3C `*uc ]
+"69
 }
 [e :U 113 ]
-[; ;newfile.c: 71: }
-[; ;newfile.c: 73: if(p=='3')
-"73
+[; ;newfile.c: 69: }
+[; ;newfile.c: 71: if(p=='3')
+"71
 [e $ ! == -> _p `ui -> 51 `ui 114  ]
-[; ;newfile.c: 74: { RB3=1;
-"74
+[; ;newfile.c: 72: { PORTB=0x08;
+"72
 {
-[e = _RB3 -> -> 1 `i `b ]
-"75
+[e = _PORTB -> -> 8 `i `uc ]
+[; ;newfile.c: 73: send_data(" OUTPUT:LED 3 IS ON\n");
+"73
+[e ( _send_data (1 -> :s 4C `*uc ]
+"74
 }
 [e :U 114 ]
-[; ;newfile.c: 75: }
-[; ;newfile.c: 77: if(p=='0')
-"77
+[; ;newfile.c: 74: }
+[; ;newfile.c: 76: if(p=='0')
+"76
 [e $ ! == -> _p `ui -> 48 `ui 115  ]
-[; ;newfile.c: 78: { RB1=RB2=RB3=0;
-"78
+[; ;newfile.c: 77: { PORTB=0;
+"77
 {
-[e = _RB1 = _RB2 = _RB3 -> -> 0 `i `b ]
+[e = _PORTB -> -> 0 `i `uc ]
+[; ;newfile.c: 78: send_data("OUTPUT: LEDS OFF\n");
+"78
+[e ( _send_data (1 -> :s 5C `*uc ]
 "79
 }
 [e :U 115 ]
 "80
 }
 [e :U 109 ]
-"59
+"55
 [e $U 110  ]
 [e :U 111 ]
 [; ;newfile.c: 79: }
@@ -1248,8 +1244,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 "81
 [e :UE 108 ]
 }
-[a 1C 73 110 115 116 114 117 99 116 105 111 110 115 58 10 0 ]
-[a 3C 80 114 101 115 115 32 50 45 89 101 108 108 111 119 32 108 101 100 46 10 0 ]
-[a 2C 80 114 101 115 115 32 49 45 71 114 101 101 110 32 108 101 100 46 10 0 ]
-[a 4C 80 114 101 115 115 32 51 45 66 108 117 101 32 108 101 100 46 10 0 ]
-[a 5C 40 80 114 101 115 115 32 48 32 116 111 32 114 101 115 101 116 41 10 0 ]
+[a 4C 32 79 85 84 80 85 84 58 76 69 68 32 51 32 73 83 32 79 78 10 0 ]
+[a 3C 32 79 85 84 80 85 84 58 76 69 68 32 50 32 73 83 32 79 78 10 0 ]
+[a 2C 32 79 85 84 80 85 84 58 76 69 68 32 49 32 73 83 32 79 78 10 0 ]
+[a 5C 79 85 84 80 85 84 58 32 76 69 68 83 32 79 70 70 10 0 ]
+[a 1C 73 78 80 85 84 58 10 0 ]

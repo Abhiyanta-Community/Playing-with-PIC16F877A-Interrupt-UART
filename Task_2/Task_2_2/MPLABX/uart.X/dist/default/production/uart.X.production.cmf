@@ -13,14 +13,14 @@
 %PSECTS
 $dist/default/production\uart.X.production.o
 cinit CODE 0 7FC 7FC 4 2
-text1 CODE 0 764 764 D 2
-text2 CODE 0 771 771 1F 2
-text3 CODE 0 75A 75A A 2
-text4 CODE 0 750 750 A 2
-maintext CODE 0 790 790 6C 2
+text1 CODE 0 765 765 D 2
+text2 CODE 0 772 772 1F 2
+text3 CODE 0 75B 75B A 2
+text4 CODE 0 751 751 A 2
+maintext CODE 0 791 791 6B 2
 cstackCOMMON COMMON 1 70 70 7 1
-strings STRING 0 3 3 65 2
-$C:\Users\DEEpu\AppData\Local\Temp\xcAs3mc.o
+strings STRING 0 3 3 5F 2
+$C:\Users\DEEpu\AppData\Local\Temp\xcAs3mk.o
 end_init CODE 0 0 0 3 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -36,13 +36,13 @@ BANK0 20-6F 1
 BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
-CONST 68-74F 2
+CONST 62-750 2
 CONST 800-1FFF 2
-ENTRY 68-74F 2
+ENTRY 62-750 2
 ENTRY 800-1FFF 2
 IDLOC 2000-2003 2
 STACK 110-16F 1
-CODE 68-74F 2
+CODE 62-750 2
 CODE 800-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
@@ -51,9 +51,9 @@ SFR3 180-18F 1
 COMMON 77-7D 1
 CONFIG 2007-2007 2
 EEDATA 2100-21FF 2
-STRCODE 68-74F 2
+STRCODE 62-750 2
 STRCODE 800-1FFF 2
-STRING 68-74F 2
+STRING 62-750 2
 STRING 800-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -69,53 +69,53 @@ STRING 800-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\uart.X.production.o
-7FC cinit CODE >500:C:\Users\DEEpu\AppData\Local\Temp\xcAs3mc.s
-7FC cinit CODE >503:C:\Users\DEEpu\AppData\Local\Temp\xcAs3mc.s
-7FC cinit CODE >509:C:\Users\DEEpu\AppData\Local\Temp\xcAs3mc.s
-7FC cinit CODE >511:C:\Users\DEEpu\AppData\Local\Temp\xcAs3mc.s
-7FD cinit CODE >512:C:\Users\DEEpu\AppData\Local\Temp\xcAs3mc.s
-750 text4 CODE >32:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-750 text4 CODE >34:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-751 text4 CODE >35:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-752 text4 CODE >34:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-758 text4 CODE >36:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-759 text4 CODE >37:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-75A text3 CODE >24:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-75B text3 CODE >26:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-75F text3 CODE >27:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-763 text3 CODE >29:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-771 text2 CODE >39:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-772 text2 CODE >41:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-773 text2 CODE >42:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-783 text2 CODE >41:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-78B text2 CODE >41:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-78F text2 CODE >43:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-764 text1 CODE >5:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-764 text1 CODE >8:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-768 text1 CODE >9:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-76C text1 CODE >10:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-770 text1 CODE >22:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-790 maintext CODE >45:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-790 maintext CODE >48:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-793 maintext CODE >49:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-794 maintext CODE >50:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-795 maintext CODE >51:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-79A maintext CODE >52:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-79F maintext CODE >54:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-7A5 maintext CODE >55:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-7AB maintext CODE >56:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-7B1 maintext CODE >57:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-7B7 maintext CODE >58:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-7BD maintext CODE >60:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-7C8 maintext CODE >61:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-7CE maintext CODE >65:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-7D5 maintext CODE >66:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-7D8 maintext CODE >69:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-7DF maintext CODE >70:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+7FC cinit CODE >490:C:\Users\DEEpu\AppData\Local\Temp\xcAs3mk.s
+7FC cinit CODE >493:C:\Users\DEEpu\AppData\Local\Temp\xcAs3mk.s
+7FC cinit CODE >499:C:\Users\DEEpu\AppData\Local\Temp\xcAs3mk.s
+7FC cinit CODE >501:C:\Users\DEEpu\AppData\Local\Temp\xcAs3mk.s
+7FD cinit CODE >502:C:\Users\DEEpu\AppData\Local\Temp\xcAs3mk.s
+751 text4 CODE >32:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+751 text4 CODE >34:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+752 text4 CODE >35:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+753 text4 CODE >34:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+759 text4 CODE >36:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+75A text4 CODE >37:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+75B text3 CODE >24:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+75C text3 CODE >26:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+760 text3 CODE >27:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+764 text3 CODE >29:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+772 text2 CODE >39:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+773 text2 CODE >41:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+774 text2 CODE >42:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+784 text2 CODE >41:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+78C text2 CODE >41:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+790 text2 CODE >43:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+765 text1 CODE >5:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+765 text1 CODE >8:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+769 text1 CODE >9:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+76D text1 CODE >10:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+771 text1 CODE >22:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+791 maintext CODE >45:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+791 maintext CODE >48:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+794 maintext CODE >49:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+795 maintext CODE >50:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+796 maintext CODE >51:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+799 maintext CODE >52:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+79E maintext CODE >54:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+7A4 maintext CODE >56:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+7AF maintext CODE >57:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+7B5 maintext CODE >61:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+7BC maintext CODE >62:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+7C0 maintext CODE >63:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+7C6 maintext CODE >66:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+7CD maintext CODE >67:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+7D1 maintext CODE >68:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+7D7 maintext CODE >71:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+7DE maintext CODE >72:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
 7E2 maintext CODE >73:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-7E9 maintext CODE >74:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-7EC maintext CODE >77:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
-7F3 maintext CODE >78:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+7E8 maintext CODE >76:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+7EF maintext CODE >77:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
+7F2 maintext CODE >78:C:\Users\DEEpu\Desktop\Task !\Task_2\Task_2_1\uart.X\newfile.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -138,37 +138,37 @@ main@p 75 0 COMMON 1 cstackCOMMON dist/default/production\uart.X.production.o
 __Hstrings 0 0 ABS 0 strings -
 _RCIF 65 0 ABS 0 - dist/default/production\uart.X.production.o
 _TXIF 64 0 ABS 0 - dist/default/production\uart.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\DEEpu\AppData\Local\Temp\xcAs3mc.o
-_main F20 0 CODE 0 maintext dist/default/production\uart.X.production.o
-_send EB4 0 CODE 0 text3 dist/default/production\uart.X.production.o
-_uart EC8 0 CODE 0 text1 dist/default/production\uart.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\DEEpu\AppData\Local\Temp\xcAs3mk.o
+_main F22 0 CODE 0 maintext dist/default/production\uart.X.production.o
+_send EB6 0 CODE 0 text3 dist/default/production\uart.X.production.o
+_uart ECA 0 CODE 0 text1 dist/default/production\uart.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\uart.X.production.o
-start 0 0 CODE 0 init C:\Users\DEEpu\AppData\Local\Temp\xcAs3mc.o
+start 0 0 CODE 0 init C:\Users\DEEpu\AppData\Local\Temp\xcAs3mk.o
 __size_of_main 0 0 ABS 0 - dist/default/production\uart.X.production.o
 __size_of_send 0 0 ABS 0 - dist/default/production\uart.X.production.o
 __size_of_uart 0 0 ABS 0 - dist/default/production\uart.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
 send@a 70 0 COMMON 1 cstackCOMMON dist/default/production\uart.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\DEEpu\AppData\Local\Temp\xcAs3mc.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\DEEpu\AppData\Local\Temp\xcAs3mc.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\DEEpu\AppData\Local\Temp\xcAs3mc.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\DEEpu\AppData\Local\Temp\xcAs3mc.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\DEEpu\AppData\Local\Temp\xcAs3mc.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\DEEpu\AppData\Local\Temp\xcAs3mc.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\DEEpu\AppData\Local\Temp\xcAs3mk.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\DEEpu\AppData\Local\Temp\xcAs3mk.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\DEEpu\AppData\Local\Temp\xcAs3mk.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\DEEpu\AppData\Local\Temp\xcAs3mk.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\DEEpu\AppData\Local\Temp\xcAs3mk.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\DEEpu\AppData\Local\Temp\xcAs3mk.o
 wtemp0 7E 0 ABS 0 - dist/default/production\uart.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 0 0 ABS 0 clrtext -
-__end_of_send_data F20 0 CODE 0 text2 dist/default/production\uart.X.production.o
+__end_of_send_data F22 0 CODE 0 text2 dist/default/production\uart.X.production.o
 __size_of_send_data 0 0 ABS 0 - dist/default/production\uart.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-_send_data EE2 0 CODE 0 text2 dist/default/production\uart.X.production.o
+_send_data EE4 0 CODE 0 text2 dist/default/production\uart.X.production.o
 send_data@x 72 0 COMMON 1 cstackCOMMON dist/default/production\uart.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\DEEpu\AppData\Local\Temp\xcAs3mc.o
-___stacklo 0 0 ABS 0 - C:\Users\DEEpu\AppData\Local\Temp\xcAs3mc.o
+___stackhi 0 0 ABS 0 - C:\Users\DEEpu\AppData\Local\Temp\xcAs3mk.o
+___stacklo 0 0 ABS 0 - C:\Users\DEEpu\AppData\Local\Temp\xcAs3mk.o
 start_initialization FF8 0 CODE 0 cinit dist/default/production\uart.X.production.o
 _TRISC6 43E 0 ABS 0 - dist/default/production\uart.X.production.o
 _TRISC7 43F 0 ABS 0 - dist/default/production\uart.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\DEEpu\AppData\Local\Temp\xcAs3mc.o
+___int_sp 0 0 STACK 2 stack C:\Users\DEEpu\AppData\Local\Temp\xcAs3mk.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -201,19 +201,16 @@ __Lsfr2 0 0 ABS 0 sfr2 -
 __Lsfr3 0 0 ABS 0 sfr3 -
 __Ltext 0 0 ABS 0 text -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-_RB1 31 0 ABS 0 - dist/default/production\uart.X.production.o
-_RB2 32 0 ABS 0 - dist/default/production\uart.X.production.o
-_RB3 33 0 ABS 0 - dist/default/production\uart.X.production.o
 __S0 800 0 ABS 0 - -
 __S1 77 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
-_get EA0 0 CODE 0 text4 dist/default/production\uart.X.production.o
-__end_of_get EB4 0 CODE 0 text4 dist/default/production\uart.X.production.o
+_get EA2 0 CODE 0 text4 dist/default/production\uart.X.production.o
+__end_of_get EB6 0 CODE 0 text4 dist/default/production\uart.X.production.o
 __Lintentry 0 0 CODE 0 intentry -
 __stringtab 6 0 STRING 0 strings dist/default/production\uart.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\DEEpu\AppData\Local\Temp\xcAs3mc.o
-__pmaintext F20 0 CODE 0 maintext dist/default/production\uart.X.production.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\DEEpu\AppData\Local\Temp\xcAs3mk.o
+__pmaintext F22 0 CODE 0 maintext dist/default/production\uart.X.production.o
 __Lcommon 0 0 ABS 0 common -
 __end_of__stringtab 12 0 STRING 0 strings dist/default/production\uart.X.production.o
 __Lspace_0 0 0 ABS 0 - -
@@ -226,10 +223,10 @@ end_of_initialization FF8 0 CODE 0 cinit dist/default/production\uart.X.producti
 __Hintentry 0 0 CODE 0 intentry -
 __Lstrings 0 0 ABS 0 strings -
 __Hreset_vec 0 0 CODE 0 reset_vec -
-__ptext1 EC8 0 CODE 0 text1 dist/default/production\uart.X.production.o
-__ptext2 EE2 0 CODE 0 text2 dist/default/production\uart.X.production.o
-__ptext3 EB4 0 CODE 0 text3 dist/default/production\uart.X.production.o
-__ptext4 EA0 0 CODE 0 text4 dist/default/production\uart.X.production.o
+__ptext1 ECA 0 CODE 0 text1 dist/default/production\uart.X.production.o
+__ptext2 EE4 0 CODE 0 text2 dist/default/production\uart.X.production.o
+__ptext3 EB6 0 CODE 0 text3 dist/default/production\uart.X.production.o
+__ptext4 EA2 0 CODE 0 text4 dist/default/production\uart.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __Lreset_vec 0 0 CODE 0 reset_vec -
@@ -239,8 +236,9 @@ __Lclrtext 0 0 ABS 0 clrtext -
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\uart.X.production.o
 __Hend_init 6 0 CODE 0 end_init -
 __end_of_main FF8 0 CODE 0 maintext dist/default/production\uart.X.production.o
-__end_of_send EC8 0 CODE 0 text3 dist/default/production\uart.X.production.o
-__end_of_uart EE2 0 CODE 0 text1 dist/default/production\uart.X.production.o
+__end_of_send ECA 0 CODE 0 text3 dist/default/production\uart.X.production.o
+__end_of_uart EE4 0 CODE 0 text1 dist/default/production\uart.X.production.o
+_PORTB 6 0 ABS 0 - dist/default/production\uart.X.production.o
 _RCREG 1A 0 ABS 0 - dist/default/production\uart.X.production.o
 _RCSTA 18 0 ABS 0 - dist/default/production\uart.X.production.o
 _SPBRG 99 0 ABS 0 - dist/default/production\uart.X.production.o
@@ -278,14 +276,14 @@ __pstrings 6 0 STRING 0 strings dist/default/production\uart.X.production.o
 # All other numeric quantities are in decimal.
 %SEGMENTS
 cinit 0 7FC FF8 4 2
-text1 0 764 EC8 D 2
-text2 0 771 EE2 1F 2
-text3 0 75A EB4 A 2
-text4 0 750 EA0 A 2
-maintext 0 790 F20 6C 2
+text1 0 765 ECA D 2
+text2 0 772 EE4 1F 2
+text3 0 75B EB6 A 2
+text4 0 751 EA2 A 2
+maintext 0 791 F22 6B 2
 cstackCOMMON 1 70 70 7 1
 reset_vec 0 0 0 3 2
-strings 0 3 6 65 2
+strings 0 3 6 5F 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal
