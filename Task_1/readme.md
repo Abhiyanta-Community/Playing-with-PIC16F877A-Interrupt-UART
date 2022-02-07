@@ -29,6 +29,6 @@ The task related queries and doubts are present in the project section with indi
 
 ## Files 
 
-The individual MPLABX(source files) and Proteus(simulation files) for each subtask is mantained in the folders namely MPLABX and Proteus respectively.
+The individual MPLABX(source files) and Proteus(simulation files) for each subtask is mantained in the folders namely MPLABX_Files and PROTEUS_Files respectively.
 
 
