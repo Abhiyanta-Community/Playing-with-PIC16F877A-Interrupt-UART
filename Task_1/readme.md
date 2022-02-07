@@ -1,11 +1,12 @@
 # Timer and Interrupts with PIC16F877A
+ Owner: Abhiyanta Community
+* Team Members: 
+    Sholka Gandhi, Priyal Desai, Pankaj Loungani, Rushi Bhatt   
+* We are Always Available for Innovators :slight_smile: Contact us : abhiyanta.ind@gmail.com 
 
-Our Task_1 was mainly about blinking the LEDs in a given sequence by burning the code in the microcontroller
+## Task Overview
 
-We simply divided our task in 3 parts they are;
-1. Task_1_1
-2. Task_1_2
-3. Task_1_3<br/>
+Our Task_1 was mainly about blinking the LEDs in a given sequence on the microcontroller
 
 **-Task_1_1**
 
@@ -21,3 +22,13 @@ We simply divided our task in 3 parts they are;
   
 * Our task_1_3 was about generating delays with timer interrupt. Here we are using Internal Interrupt Timer0 for creating delay.
 * We are giving delay of 100ms for blinking of every LEDs and so in 1sec all 5 LEDs blink one by one. In this we have used logic of count and whenever the interrupt occurs the count increases and LEDs glow one by one. 
+
+## Task related queries 
+
+The task related queries and doubts are present in the project section with individual issues created for each task and its subtask
+
+## Files 
+
+The individual MPLABX(source files) and Proteus(simulation files) for each subtask is mantained in the folders namely MPLABX and Proteus respectively.
+
+
