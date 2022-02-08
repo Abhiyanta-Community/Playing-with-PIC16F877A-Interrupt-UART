@@ -1,4 +1,4 @@
-# Timer and Interrupts with PIC16F877A
+# Communicating through UART and PIC
  Owner: Abhiyanta Community
 * Team Members: 
     Sholka Gandhi, Priyal Desai, Pankaj Loungani, Rushi Bhatt   
