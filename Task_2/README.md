@@ -1,4 +1,10 @@
+# Timer and Interrupts with PIC16F877A
+ Owner: Abhiyanta Community
+* Team Members: 
+    Sholka Gandhi, Priyal Desai, Pankaj Loungani, Rushi Bhatt   
+* We are Always Available for Innovators :slight_smile: Contact us : abhiyanta.ind@gmail.com 
 
+## Task Overview
 **-Task_2_1**
 
 * Our task_2_1 was about establishing a communication between the transmitter and reciever without using the inbuild pins.
@@ -19,3 +25,12 @@
 * From this we learnt how to communicate two MCUs using UART. Here, we have used two PICs : MCU1 for transmitting data and MCU2 for receiving data.
 * In MCU1, we are transmitting state of PORTB where push buttons are available to MCU2 for controlling LEDs. In this we have setted PORTB as input and initially all are at off state but when push button is pressed it makes that PIN as on and so it's respective LED is on.
 * In MCU2, we are receiving data of PORTB from MCU1 and as per that LEDs of MCU2 will respond respectively. Here we are receiving data using get() function which is continuously reading state of PORTB of MCU1 and so whenever any Pin is setted high that LED will glow. 
+## Task related queries 
+
+The task related queries and doubts are present in the project section with individual issues created for each task and its subtask
+
+## Files 
+
+The individual MPLABX(source files) and Proteus(simulation files) for each subtask is maintained in the folders namely MPLABX and PROTEUS respectively.
+
+
