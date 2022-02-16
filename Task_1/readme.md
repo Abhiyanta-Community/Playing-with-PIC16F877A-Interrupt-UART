@@ -2,7 +2,7 @@
  Owner: Abhiyanta Community
 * Team Members: 
     Sholka Gandhi, Priyal Desai, Pankaj Loungani, Rushi Bhatt   
-* We are Always Available for Innovators :slight_smile: Contact us : abhiyanta.ind@gmail.com 
+* We are Always Available for Innovators :) Contact us : abhiyanta.ind@gmail.com 
 
 ## Task Overview
 
